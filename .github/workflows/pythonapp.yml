@@ -22,10 +22,10 @@ jobs:
         pip install -r ./python/requirements.txt
     - name: Build & Push Image
       uses: azure/docker-login@v1
-        with:
-          login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
-          username: ${{ secrets.REGISTRY_USERNAME }}
-          password: ${{ secrets.REGISTRY_PASSWORD }}
+      with:
+        login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
       run: |
         cd ./python
         docker image build -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/gitops:hellov1.0 .
